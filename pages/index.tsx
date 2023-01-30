@@ -3,9 +3,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
+import Nav from '../components/nav';
 
-const Home: NextPage = () => {
+
+
+const Home: NextPage = ({ products }) => {
   return (
+
+
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -13,10 +18,21 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+
+        <Nav className={styles.title} />
+        <section className="text-gray-700 body-font">
+          <div className="container px-5 py-24 mx-auto">
+            <div className="flex flex-wrap -m-4">
+              The product list will go here.
+            </div>
+          </div>
+        </section>
 
         <p className={styles.description}>
           Get started by editing{' '}
