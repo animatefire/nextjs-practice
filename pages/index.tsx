@@ -25,10 +25,10 @@ const Home: NextPage = ({ products }) => {
         </h1>
 
 
-        <Nav className={styles.title} />
-        <section className="text-gray-700 body-font">
-          <div className="container px-5 py-24 mx-auto">
-            <div className="flex flex-wrap -m-4">
+        <Nav />
+        <section className={styles.card}>
+          <div >
+            <div >
               The product list will go here.
             </div>
           </div>
