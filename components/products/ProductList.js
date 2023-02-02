@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
-export default function ProductList({ ...props }) {
-  console.log('This is props: ' + props)
+
+function ProductList({ ...props }) {
+
   const thumbnail = props.product.assets.filter((item, index) => {
     return (item.image_dimensions.width === 350);
   })[0];
@@ -30,3 +31,5 @@ export default function ProductList({ ...props }) {
     </div>
   );
 }
+
+export default ProductList;

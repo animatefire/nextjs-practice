@@ -1,30 +1,38 @@
 import Nav from '../components/nav';
-import commerce from '../lib/commerce';
+import commerce from "../lib/commerce";
 import ProductList from '../components/products/ProductList';
 
-export default function IndexPage({ products }) {
- return (
-   <div>
-     <Nav />
-     <section className="text-gray-700 body-font">
-       <div className="container px-5 py-24 mx-auto">
-         <div className="flex flex-wrap -m-4">
-           {products.map((product, index) => (
-             <ProductList product={product} key={index} />
-           ))}
-         </div>
-       </div>
-     </section>
-   </div>
- );
+export default function IndexPage({ merchant, categories, products }) {
+  return (
+    <ul>
+      {/*<li>{JSON.stringify(merchant, null, 2)}</li>*/}
+      <li>{JSON.stringify(categories, null, 2)}</li>
+      <li>{JSON.stringify(products, null, 2)}</li>
+      {products.map((product) => (
+      <ul>
+        <li key={product.permalink}>
+          {product.name}
+        </li>
+      </ul>
+      )
+      )}
+    </ul>
+  );
 }
+
+export default function IndexPage();
 
 export async function getStaticProps() {
- const products = await commerce.products.list();
+  const merchant = await commerce.merchants.about();
+  const { data: categories } = await commerce.categories.list();
+  const { data: products } = await commerce.products.list();
 
- return {
-   props: {
-     products: products.data,
-   },
- };
+  return {
+    props: {
+      merchant,
+      categories,
+      products,
+    },
+  };
 }
+
