@@ -2,12 +2,13 @@ import Nav from '../components/nav';
 import commerce from "../lib/commerce";
 import ProductList from '../components/products/ProductList';
 
-export default function IndexPage({ merchant, categories, products }) {
+
+export default function IndexPage({ merchant, categories, products }){
   return (
     <ul>
-      {/*<li>{JSON.stringify(merchant, null, 2)}</li>*/}
+      {/*<li>{JSON.stringify(merchant, null, 2)}</li>}
       <li>{JSON.stringify(categories, null, 2)}</li>
-      <li>{JSON.stringify(products, null, 2)}</li>
+  <li>{JSON.stringify(products, null, 2)}</li>*/}
       {products.map((product) => (
       <ul>
         <li key={product.permalink}>
@@ -20,7 +21,6 @@ export default function IndexPage({ merchant, categories, products }) {
   );
 }
 
-export default function IndexPage();
 
 export async function getStaticProps() {
   const merchant = await commerce.merchants.about();
@@ -35,4 +35,3 @@ export async function getStaticProps() {
     },
   };
 }
-
